@@ -1,13 +1,22 @@
 package com.company;
 
+import com.company.martialArts.Judo;
+import com.company.martialArts.Karate;
+import com.company.martialArts.MartialArts;
+import com.company.participant.Participant;
+
 public class Main {
     public static void main(String[] args) {
-        Participant participant = new Participant("john", "hopkins", "001020304");
-        Karate karate = new Karate();
-        karate.addSchedule("10:00-12:00", "odd");
-        karate.addSchedule("12:00-14:00", "even");
+        MartialArts karate = new Karate();
+        MartialArts judo = new Judo();
 
-        boolean res = karate.register("10:00-12:00", "odd", participant);
-        System.out.println(res);
+        Participant participant1 = new Participant("john", "hopkins", "123", karate);
+        Participant participant2 = new Participant("anne", "hopkins", "123", judo);
+
+        participant1.exercise();
+        participant2.exercise();
+
+        System.out.println("participant1.getProgress() = " + participant1.getProgress());
+        System.out.println("participant2.getProgress() = " + participant2.getProgress());
     }
 }
